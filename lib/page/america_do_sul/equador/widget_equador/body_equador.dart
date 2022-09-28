@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+
+class BodyEquador extends StatefulWidget {
+  const BodyEquador({Key? key}) : super(key: key);
+
+  @override
+  State<BodyEquador> createState() => _BodyEquadorState();
+}
+
+class _BodyEquadorState extends State<BodyEquador> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/imagens/mapas/americadosul.jpeg',
+                fit: BoxFit.cover,
+                height: 800,
+              ),
+            ],
+          )),
+    );
+  }
+}
