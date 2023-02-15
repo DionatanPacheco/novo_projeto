@@ -25,7 +25,7 @@ class _StartPageState extends State<StartPage> {
           title: const Text(
             'Novo mundo',
             style: TextStyle(
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: Color.fromARGB(255, 250, 249, 249),
                 fontSize: 50,
                 fontWeight: FontWeight.bold),
           ),

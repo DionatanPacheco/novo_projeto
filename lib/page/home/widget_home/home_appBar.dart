@@ -6,26 +6,26 @@ import '../home_historia_mundo/home_drawer_historia.dart';
 
 AppBar getHomeAppBar(context) {
   return AppBar(
-    backgroundColor: Colors.grey,
-    
+    backgroundColor: const Color.fromARGB(255, 8, 8, 8),
     title: const Text(
       'Novo mundo',
       style: TextStyle(
-        color: Color.fromARGB(255, 0, 0, 0),
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
+          color: Color.fromARGB(255, 251, 249, 249),
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.italic),
     ),
     centerTitle: true,
     actions: [
       IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const HomeDrawerHistoria()));
-          },
-          icon: const Icon(Icons.book_online),)
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const HomeDrawerHistoria()));
+        },
+        icon: const Icon(Icons.book_online),
+      )
     ],
   );
 }

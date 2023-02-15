@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/argentina/widget_argentina/drawer_argetinapers.dart';
 
-class BodyArgentina extends StatefulWidget {
-  const BodyArgentina({Key? key}) : super(key: key);
+class BodyColombia extends StatefulWidget {
+  const BodyColombia({Key? key}) : super(key: key);
 
   @override
-  State<BodyArgentina> createState() => _BodyArgentinaState();
+  State<BodyColombia> createState() => _BodyColombiaState();
 }
 
-class _BodyArgentinaState extends State<BodyArgentina> {
+class _BodyColombiaState extends State<BodyColombia> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,16 +21,7 @@ class _BodyArgentinaState extends State<BodyArgentina> {
               fontWeight: FontWeight.bold,
               color: Colors.black87),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DrawerArgentinaPers()));
-              },
-              icon: const Icon(Icons.add))
-        ],
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
       ),
       body: InteractiveViewer(
         minScale: 1,

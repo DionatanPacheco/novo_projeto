@@ -40,17 +40,19 @@ class _BodyParaguaiState extends State<BodyParaguai> {
               ))
         ],
       ),
-      body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Stack(
-            children: [
-              Image.asset(
-                'assets/imagens/mapas/americadosul.jpeg',
-                fit: BoxFit.cover,
-                height: 800,
-              ),
-            ],
-          )),
+      body: InteractiveViewer(
+        minScale: 1,
+        maxScale: 6,
+        child: Stack(
+          children: [
+            Image.asset(
+              'assets/imagens/mapas/americadosul.jpeg',
+              fit: BoxFit.cover,
+              height: 800,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

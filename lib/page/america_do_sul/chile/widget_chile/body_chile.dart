@@ -39,8 +39,9 @@ class _BodyChileState extends State<BodyChile> {
                 ))
           ],
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
+        body: InteractiveViewer(
+          minScale: 1,
+          maxScale: 6,
           child: Stack(children: [
             Image.asset(
               'assets/imagens/mapas/americadosul.jpeg',

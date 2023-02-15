@@ -11,7 +11,9 @@ class _BodyAmericaDoSulState extends State<BodyAmericaDoSul> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: InteractiveViewer(
+        minScale: 1,
+        maxScale: 6,
         child: SizedBox(
           child: Stack(
             children: [

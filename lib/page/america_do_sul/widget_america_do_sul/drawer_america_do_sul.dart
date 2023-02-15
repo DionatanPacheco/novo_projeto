@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:novo_projeto/page/america_do_sul/argentina/home_argentina.dart';
 import 'package:novo_projeto/page/america_do_sul/bolivia/home_bolivia.dart';
 import 'package:novo_projeto/page/america_do_sul/chile/home_chile.dart';
 import 'package:novo_projeto/page/america_do_sul/equador/home_equador.dart';
+import 'package:novo_projeto/page/america_do_sul/guiana/home_guiana.dart';
 import 'package:novo_projeto/page/america_do_sul/paraguai/home_paraguai.dart';
 import 'package:novo_projeto/page/america_do_sul/patagonia/home_patagonia.dart';
 import 'package:novo_projeto/page/america_do_sul/peru/home_peru.dart';
+import 'package:novo_projeto/page/america_do_sul/suriname/home_suriname.dart';
 import 'package:novo_projeto/page/america_do_sul/uruguai/home_uruguai.dart';
 
 import '../../home/home_page.dart';
+import '../colombia/home_colombia.dart';
 
 class DraweeAmericaDoSul extends StatelessWidget {
   const DraweeAmericaDoSul({Key? key}) : super(key: key);
@@ -51,7 +55,12 @@ class DraweeAmericaDoSul extends StatelessWidget {
                       'Argentina',
                       style: TextStyle(color: Color.fromARGB(221, 8, 8, 8)),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeArgentina()));
+                    },
                   ),
                 ),
               ),
@@ -109,7 +118,12 @@ class DraweeAmericaDoSul extends StatelessWidget {
                 'Colombia',
                 style: TextStyle(color: Color.fromARGB(221, 8, 8, 8)),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeColombia()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -136,7 +150,12 @@ class DraweeAmericaDoSul extends StatelessWidget {
                 'Guiana',
                 style: TextStyle(color: Color.fromARGB(221, 8, 8, 8)),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeGuiana()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -193,7 +212,12 @@ class DraweeAmericaDoSul extends StatelessWidget {
                 'Suriname',
                 style: TextStyle(color: Color.fromARGB(221, 8, 8, 8)),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeSuriname()));
+              },
             ),
             ListTile(
               leading: const Icon(

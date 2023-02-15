@@ -36,7 +36,7 @@ class _StartBodyState extends State<StartBody> {
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87),
+                    color: Color.fromARGB(221, 252, 250, 250)),
               ),
               onPressed: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const HomePage())),
