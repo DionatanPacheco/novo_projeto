@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:novo_projeto/page/home/home_historia_mundo/home_hist_arq.dart';
 
+import 'drawer_item.dart';
+
 class HomeDrawerHistoria extends StatefulWidget {
   const HomeDrawerHistoria({Key? key}) : super(key: key);
 
@@ -11,45 +13,64 @@ class HomeDrawerHistoria extends StatefulWidget {
 }
 
 class _HomeDrawerHistoriaState extends State<HomeDrawerHistoria> {
-  var titlelist = [
-    'História', //1
-    'Cronologia', //2
-    'Religião', //3
-    'Raças', //4
-    'A Terra do Novo Mundo', //5
-    'O povo da Terra', //6
-    'Povos Selvagens', //7
-    'Herois e Vilões', //8
-    'Um Mundo de Magia\n E "tecnologia"', //9
-    'Magos, Sacerdotes,\n Alquimistas e Mecânicos', //10
-    'A campanha no Novo Mundo' //11
-  ];
-
-  var desclist = [
-    Strings.homhist, //1
-    Strings.homcronologia, //2
-    Strings.homreligiao, //3
-    Strings.homraca, //4
-    Strings.homaterra, //5
-    Strings.hompovos, //6
-    Strings.homselvagen, //7
-    Strings.homheroisvilao, //8
-    Strings.hommagia, //9
-    Strings.hommagossacerdotes, //10
-    Strings.homcampanha, //11
-  ];
-  var imglist = [
-    'assets/imagens/fotoentrada.jpg', //1
-    'assets/imagens/cronologia.jpg', //2
-    'assets/imagens/religiao.jpg', //3
-    'assets/imagens/npcs/Raças-2.jpg', //4
-    'assets/imagens/npcs/terramundo.jpg', //5
-    'assets/imagens/npcs/povoterra.jpeg', //6
-    'assets/imagens/npcs/selvagens.jpg', //7
-    'assets/imagens/npcs/campanha.jpg', //8
-    'assets/imagens/npcs/npcs.jpg', //9
-    'assets/imagens/npcs/magos.jpg', //10
-    'assets/imagens/npcs/heroi.jpg', //11
+  ///Diferente de como estava implementado com tres listas, dessa forma podemos ter somente uma lista de objetos com mais de uma propriedade.
+  ///Nesse caso, imagem, titulo e descrição.
+  var drawerItems = [
+    DrawerItem(
+      title: 'História',
+      description: Strings.homhist,
+      image: 'assets/imagens/fotoentrada.jpg',
+    ),
+    DrawerItem(
+      title: 'Cronologia',
+      description: Strings.homcronologia,
+      image: 'assets/imagens/cronologia.jpg',
+    ),
+    DrawerItem(
+      title: 'Religião',
+      description: Strings.homreligiao,
+      image: 'assets/imagens/religiao.jpg',
+    ),
+    DrawerItem(
+      title: 'Raças',
+      description: Strings.homraca,
+      image: 'assets/imagens/npcs/Raças-2.jpg',
+    ),
+    DrawerItem(
+      title: 'A Terra do Novo Mundo',
+      description: Strings.homaterra,
+      image: 'assets/imagens/npcs/terramundo.jpg',
+    ),
+    DrawerItem(
+      title: 'O povo da Terra',
+      description: Strings.hompovos,
+      image: 'assets/imagens/npcs/povoterra.jpeg',
+    ),
+    DrawerItem(
+      title: 'Povos Selvagens',
+      description: Strings.homselvagen,
+      image: 'assets/imagens/npcs/selvagens.jpg',
+    ),
+    DrawerItem(
+      title: 'Herois e Vilões',
+      description: Strings.homheroisvilao,
+      image: 'assets/imagens/npcs/campanha.jpg',
+    ),
+    DrawerItem(
+      title: 'Um Mundo de Magia\n E "tecnologia"',
+      description: Strings.hommagia,
+      image: 'assets/imagens/npcs/npcs.jpg',
+    ),
+    DrawerItem(
+      title: 'Magos, Sacerdotes,\n Alquimistas e Mecânicos',
+      description: Strings.hommagossacerdotes,
+      image: 'assets/imagens/npcs/magos.jpg',
+    ),
+    DrawerItem(
+      title: 'A campanha no Novo Mundo',
+      description: Strings.homcampanha,
+      image: 'assets/imagens/npcs/heroi.jpg',
+    ),
   ];
 
   @override
@@ -57,62 +78,76 @@ class _HomeDrawerHistoriaState extends State<HomeDrawerHistoria> {
     double width = MediaQuery.of(context).size.width * 0.2;
     return Drawer(
       backgroundColor: Colors.grey,
-      child: ListView.builder(
-        itemCount: imglist.length,
-        itemBuilder: (context, index) {
-          return InkWell(
-              onTap: () {
-                showDialogFunc(
-                    context, imglist[index], titlelist[index], desclist[index]);
-              },
-              child: Card(
-                shadowColor: Colors.grey,
-                child: SingleChildScrollView(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: Image.asset(
-                          imglist[index],
-                          fit: BoxFit.cover,
+      child: ListView(
+        children: drawerItems
+            .map(
+              (item) => InkWell(
+                onTap: () {
+                  showDialogFunc(
+                    context,
+                    item.image,
+                    item.title,
+                    item.description,
+                  );
+                },
+                child: Card(
+                  shadowColor: Colors.grey,
+                  child: SingleChildScrollView(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            //Se quiser que a imagem seja em um círculo perfeito, então comenta essa linha [borderRadius] e descomenta a linha abaixo [shape].
+                            //As duas propriedade não podem ser usadas em conjunto pq o Flutter não permite.
+                            borderRadius: BorderRadius.circular(5),
+                            //shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(item.image),
+                            ),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              titlelist[index],
-                              style: const TextStyle(
-                                  color: Color.fromARGB(221, 10, 10, 10),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            SizedBox(
-                              width: width,
-                              child: const Text(
-                                '',
-                                style: TextStyle(
-                                    color: Color.fromARGB(221, 252, 251, 251),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                item.title,
+                                style: const TextStyle(
+                                    color: Color.fromARGB(221, 10, 10, 10),
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              SizedBox(
+                                width: width,
+
+                                ///Eu imagino que aqui vc queira usar a descrição. Não alterei pq não sei como quer implementar.
+                                child: const Text(
+                                  '',
+                                  style: TextStyle(
+                                      color: Color.fromARGB(221, 252, 251, 251),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ));
-        },
+              ),
+            )
+            .toList(),
       ),
     );
   }
