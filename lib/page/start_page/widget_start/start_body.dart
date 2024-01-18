@@ -19,7 +19,8 @@ class _StartBodyState extends State<StartBody> {
           child: Stack(
             children: [
               Image.asset('assets/imagens/fotoentrada.jpg',
-                  fit: BoxFit.cover, height: 800),
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width * 1),
             ],
           ),
         ),
@@ -30,16 +31,22 @@ class _StartBodyState extends State<StartBody> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            FloatingActionButton.extended(
-              label: const Text(
-                'Entrar',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(221, 252, 250, 250)),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 15,
+                bottom: 8,
               ),
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage())),
+              child: FloatingActionButton.extended(
+                label: const Text(
+                  'Entrar',
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(221, 252, 250, 250)),
+                ),
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const HomePage())),
+              ),
             ),
           ],
         ),

@@ -19,7 +19,8 @@ class _HomeBodyState extends State<HomeBody> {
               Image.asset(
                 'assets/imagens/mapas/mapamundi.jpg',
                 fit: BoxFit.cover,
-                height: 800,
+                height: MediaQuery.of(context).size.height * 1,
+                width: MediaQuery.of(context).size.width * 1,
               ),
             ],
           ),
