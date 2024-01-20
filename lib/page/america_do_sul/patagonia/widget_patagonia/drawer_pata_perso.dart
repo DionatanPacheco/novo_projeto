@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:novo_projeto/page/america_do_sul/patagonia/patagonia_model/patagonia_model.dart';
+import 'package:novo_projeto/page/home/home_historia_mundo/drawer_item.dart';
 
 class DrawerPatagoniaPers extends StatefulWidget {
   const DrawerPatagoniaPers({Key? key}) : super(key: key);
@@ -8,23 +9,23 @@ class DrawerPatagoniaPers extends StatefulWidget {
   State<DrawerPatagoniaPers> createState() => _DrawerPatagoniaPersState();
 }
 
-var titleList = [
-  'Jaarl Erobe',
-  'Matias Santiago',
-  'Yosep O Sábio',
-  'Las Hienas',
-];
-var descrilist = [
-  Strings.patjarlerobe,
-  Strings.patmatias,
-  Strings.patyosep,
-  Strings.patlashienas,
-];
-var imglist = [
-  'assets/imagens/npcs/jaarlErobe.jpg',
-  'assets/imagens/npcs/Ranger1.jpg',
-  'assets/imagens/npcs/yosep.jpg',
-  'assets/imagens/npcs/lashienas.jpeg',
+var drawerItems = [
+  DrawerItem(
+      title: 'Jaarl Erobe',
+      description: Strings.patjarlerobe,
+      image: 'assets/imagens/npcs/jaarlErobe.jpg'),
+  DrawerItem(
+      title: 'Matias Santiago',
+      description: Strings.patmatias,
+      image: 'assets/imagens/npcs/Ranger1.jpg'),
+  DrawerItem(
+      title: 'Yosep O Sábio',
+      description: Strings.patyosep,
+      image: 'assets/imagens/npcs/yosep.jpg'),
+  DrawerItem(
+      title: 'Las Hienas',
+      description: Strings.patlashienas,
+      image: 'assets/imagens/npcs/lashienas.jpeg')
 ];
 
 class _DrawerPatagoniaPersState extends State<DrawerPatagoniaPers> {
@@ -55,62 +56,79 @@ class _DrawerPatagoniaPersState extends State<DrawerPatagoniaPers> {
                 colors: <Color>[Colors.black12, Colors.blueGrey]),
           ),
         ),
-        ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            itemCount: imglist.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                highlightColor: Colors.blue.withOpacity(0.4),
-                splashColor: Colors.green.withOpacity(0.5),
-                onTap: () {
-                  showdialogfunc(context, imglist[index], titleList[index],
-                      descrilist[index]);
-                },
-                child: Card(
-                  shadowColor: Colors.grey,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      SizedBox(
-                          width: 100,
-                          height: 100,
-                          child:
-                              Image.asset(imglist[index], fit: BoxFit.cover)),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              titleList[index],
-                              style: const TextStyle(
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            SizedBox(
-                              width: width,
-                              child: const Text(
-                                '',
-                                style: TextStyle(
-                                    color: Colors.black87,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
+        ListView(
+          shrinkWrap: true,
+          children: drawerItems
+              .map(
+                (item) => InkWell(
+                  onTap: () {
+                    showdialogfunc(
+                      context,
+                      item.image,
+                      item.title,
+                      item.description,
+                    );
+                  },
+                  child: Card(
+                    shadowColor: Colors.grey,
+                    child: SingleChildScrollView(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              //Se quiser que a imagem seja em um círculo perfeito, então comenta essa linha [borderRadius] e descomenta a linha abaixo [shape].
+                              //As duas propriedade não podem ser usadas em conjunto pq o Flutter não permite.
+                              borderRadius: BorderRadius.circular(5),
+
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(item.image),
                               ),
                             ),
-                          ],
-                        ),
-                      )
-                    ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  item.title,
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(221, 10, 10, 10),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  width: width,
+
+                                  ///Eu imagino que aqui vc queira usar a descrição. Não alterei pq não sei como quer implementar.
+                                  child: const Text(
+                                    '',
+                                    style: TextStyle(
+                                        color:
+                                            Color.fromARGB(221, 252, 251, 251),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              );
-            })
+              )
+              .toList(),
+        ),
       ]),
     );
   }

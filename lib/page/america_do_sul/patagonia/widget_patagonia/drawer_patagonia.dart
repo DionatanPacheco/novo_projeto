@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:novo_projeto/page/america_do_sul/patagonia/patagonia_model/patagonia_model.dart';
+import 'package:novo_projeto/page/home/home_historia_mundo/drawer_item.dart';
 
 class DrawerPatagonia extends StatefulWidget {
   const DrawerPatagonia({Key? key}) : super(key: key);
@@ -8,32 +9,35 @@ class DrawerPatagonia extends StatefulWidget {
   State<DrawerPatagonia> createState() => _DrawerPatagoniaState();
 }
 
-var titleList = [
-  'Principais\n' 'Caracteristicas',
-  'Sobre',
-  'Vida e sociedade',
-  'Concepción',
-  'Tierra de Los Jarl',
-  'Tierra de\n' 'Los Fuegos',
-  'Torres del Pane',
-];
-var descrilist = [
-  Strings.patcaract,
-  Strings.patagoniadados,
-  Strings.patvidasociedade,
-  Strings.patconcepcion,
-  Strings.pattierrajaarl,
-  Strings.pattierrafuego,
-  Strings.pattorredelpaine,
-];
-var imglist = [
-  'assets/imagens/cidades/cordilheira.jpg',
-  'assets/imagens/cidades/cordilheira.jpg',
-  'assets/imagens/cidades/cordilheira2.png',
-  'assets/imagens/cidades/cidamontanha.jpg',
-  'assets/imagens/cidades/forte.jpg',
-  'assets/imagens/cidades/vilarejo.jpg',
-  'assets/imagens/cidades/cordilheira3.jpg'
+var drawerItems = [
+  DrawerItem(
+      title: 'Principais\n' 'Caracteristicas',
+      description: Strings.patcaract,
+      image: 'assets/imagens/cidades/cordilheira.jpg'),
+  DrawerItem(
+      title: 'Sobre',
+      description: Strings.patagoniadados,
+      image: 'assets/imagens/cidades/cordilheira.jpg'),
+  DrawerItem(
+      title: 'Vida e sociedade',
+      description: Strings.patvidasociedade,
+      image: 'assets/imagens/cidades/cordilheira2.png'),
+  DrawerItem(
+      title: 'Concepción',
+      description: Strings.patconcepcion,
+      image: 'assets/imagens/cidades/cidamontanha.jpg'),
+  DrawerItem(
+      title: 'Tierra de Los Jarl',
+      description: Strings.pattierrajaarl,
+      image: 'assets/imagens/cidades/forte.jpg'),
+  DrawerItem(
+      title: 'Tierra de\n' 'Los Fuegos',
+      description: Strings.pattierrafuego,
+      image: 'assets/imagens/cidades/vilarejo.jpg'),
+  DrawerItem(
+      title: 'Torres del Pane',
+      description: Strings.pattorredelpaine,
+      image: 'assets/imagens/cidades/cordilheira3.jpg'),
 ];
 
 class _DrawerPatagoniaState extends State<DrawerPatagonia> {
@@ -68,59 +72,79 @@ class _DrawerPatagoniaState extends State<DrawerPatagonia> {
                 colors: <Color>[Colors.black12, Colors.blueGrey]),
           ),
         ),
-        ListView.builder(
-            shrinkWrap: true,
-            itemCount: imglist.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  showdialogfunc(context, imglist[index], titleList[index],
-                      descrilist[index]);
-                },
-                child: Card(
-                  shadowColor: Colors.grey,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      SizedBox(
-                          width: 100,
-                          height: 100,
-                          child:
-                              Image.asset(imglist[index], fit: BoxFit.cover)),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              titleList[index],
-                              style: const TextStyle(
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            SizedBox(
-                              width: width,
-                              child: const Text(
-                                '',
-                                style: TextStyle(
-                                    color: Colors.black87,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
+        ListView(
+          shrinkWrap: true,
+          children: drawerItems
+              .map(
+                (item) => InkWell(
+                  onTap: () {
+                    showdialogfunc(
+                      context,
+                      item.image,
+                      item.title,
+                      item.description,
+                    );
+                  },
+                  child: Card(
+                    shadowColor: Colors.grey,
+                    child: SingleChildScrollView(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              //Se quiser que a imagem seja em um círculo perfeito, então comenta essa linha [borderRadius] e descomenta a linha abaixo [shape].
+                              //As duas propriedade não podem ser usadas em conjunto pq o Flutter não permite.
+                              borderRadius: BorderRadius.circular(5),
+
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(item.image),
                               ),
                             ),
-                          ],
-                        ),
-                      )
-                    ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  item.title,
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(221, 10, 10, 10),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  width: width,
+
+                                  ///Eu imagino que aqui vc queira usar a descrição. Não alterei pq não sei como quer implementar.
+                                  child: const Text(
+                                    '',
+                                    style: TextStyle(
+                                        color:
+                                            Color.fromARGB(221, 252, 251, 251),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              );
-            })
+              )
+              .toList(),
+        ),
       ]),
     );
   }

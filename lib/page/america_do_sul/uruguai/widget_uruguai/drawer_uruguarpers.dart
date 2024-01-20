@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:novo_projeto/page/america_do_sul/uruguai/model_uruguai/model_uruguai.dart';
+import 'package:novo_projeto/page/america_do_sul/uruguai/widget_uruguai/drawer_uruguai.dart';
+import 'package:novo_projeto/page/home/home_historia_mundo/drawer_item.dart';
 
 class DrawerUruguaiPers extends StatefulWidget {
   const DrawerUruguaiPers({Key? key}) : super(key: key);
@@ -8,18 +10,23 @@ class DrawerUruguaiPers extends StatefulWidget {
   State<DrawerUruguaiPers> createState() => _DrawerUruguaiPersState();
 }
 
-var titleList = [
-  'Ruínas Antigas',
-  'Gnul Urk',
-  'Gak Arak',
-  'Guilda dos Marinheiros'
-];
-var descrilist = [Strings.uruglocais, '', '', Strings.uruguildamari];
-var imglist = [
-  'assets/imagens/cidades/ruinas.jpg',
-  'assets/imagens/npcs/gnull.jpg',
-  'assets/imagens/npcs/gaak.jpg',
-  'assets/imagens/cidades/guildapescador.jpg'
+var drawwerItems = [
+  DrawerItem(
+      title: 'Ruínas Antigas',
+      description: Strings.uruglocais,
+      image: 'assets/imagens/cidades/ruinas.jpg'),
+  DrawerItem(
+      title: 'Gnul Urk',
+      description: 'Por Fazer',
+      image: 'assets/imagens/npcs/gnull.jpg'),
+  DrawerItem(
+      title: 'Gak Arak',
+      description: 'Por Fazer',
+      image: 'assets/imagens/npcs/gaak.jpg'),
+  DrawerItem(
+      title: 'Guilda dos Marinheiros',
+      description: Strings.uruguildamari,
+      image: 'assets/imagens/cidades/guildapescador.jpg')
 ];
 
 class _DrawerUruguaiPersState extends State<DrawerUruguaiPers> {
@@ -54,59 +61,79 @@ class _DrawerUruguaiPersState extends State<DrawerUruguaiPers> {
                 colors: <Color>[Colors.black12, Colors.blueGrey]),
           ),
         ),
-        ListView.builder(
-            shrinkWrap: true,
-            itemCount: imglist.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  showDialogFunc(context, imglist[index], titleList[index],
-                      descrilist[index]);
-                },
-                child: Card(
-                  shadowColor: Colors.grey,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      SizedBox(
-                          width: 100,
-                          height: 100,
-                          child:
-                              Image.asset(imglist[index], fit: BoxFit.cover)),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              titleList[index],
-                              style: const TextStyle(
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            SizedBox(
-                              width: width,
-                              child: const Text(
-                                '',
-                                style: TextStyle(
-                                    color: Colors.black87,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
+        ListView(
+          shrinkWrap: true,
+          children: drawerItems
+              .map(
+                (item) => InkWell(
+                  onTap: () {
+                    showDialogFunc(
+                      context,
+                      item.image,
+                      item.title,
+                      item.description,
+                    );
+                  },
+                  child: Card(
+                    shadowColor: Colors.grey,
+                    child: SingleChildScrollView(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              //Se quiser que a imagem seja em um círculo perfeito, então comenta essa linha [borderRadius] e descomenta a linha abaixo [shape].
+                              //As duas propriedade não podem ser usadas em conjunto pq o Flutter não permite.
+                              borderRadius: BorderRadius.circular(5),
+
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(item.image),
                               ),
                             ),
-                          ],
-                        ),
-                      )
-                    ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  item.title,
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(221, 10, 10, 10),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  width: width,
+
+                                  ///Eu imagino que aqui vc queira usar a descrição. Não alterei pq não sei como quer implementar.
+                                  child: const Text(
+                                    '',
+                                    style: TextStyle(
+                                        color:
+                                            Color.fromARGB(221, 252, 251, 251),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              );
-            })
+              )
+              .toList(),
+        ),
       ]),
     );
   }

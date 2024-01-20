@@ -103,7 +103,7 @@ class _HomeDrawerHistoriaState extends State<HomeDrawerHistoria> {
                             //Se quiser que a imagem seja em um círculo perfeito, então comenta essa linha [borderRadius] e descomenta a linha abaixo [shape].
                             //As duas propriedade não podem ser usadas em conjunto pq o Flutter não permite.
                             borderRadius: BorderRadius.circular(5),
-                            //shape: BoxShape.circle,
+
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage(item.image),

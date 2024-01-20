@@ -20,6 +20,7 @@ class _StartBodyState extends State<StartBody> {
             children: [
               Image.asset('assets/imagens/fotoentrada.jpg',
                   fit: BoxFit.cover,
+                  height: 1200,
                   width: MediaQuery.of(context).size.width * 1),
             ],
           ),

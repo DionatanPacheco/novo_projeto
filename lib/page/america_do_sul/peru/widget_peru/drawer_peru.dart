@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:novo_projeto/page/america_do_sul/peru/model_peru/model_peru.dart';
+import 'package:novo_projeto/page/home/home_historia_mundo/drawer_item.dart';
 
 class DrawerPeru extends StatefulWidget {
   const DrawerPeru({Key? key}) : super(key: key);
@@ -8,26 +9,27 @@ class DrawerPeru extends StatefulWidget {
   State<DrawerPeru> createState() => _DrawerPeruState();
 }
 
-var titleList = [
-  'Caracterista',
-  'Iquitos',
-  'Cajamarca',
-  'Cusco',
-  'Lima',
-];
-var descrilist = [
-  Strings.perucarac,
-  Strings.peruiquitos,
-  Strings.perucajamarca,
-  Strings.perucusco,
-  Strings.perulima
-];
-var imglist = [
-  'assets/imagens/cidades/cidadegrande.jpg',
-  'assets/imagens/cidades/cidadegrande.jpg',
-  'assets/imagens/cidades/vilarejo.jpg',
-  'assets/imagens/cidades/cidadegrande.jpg',
-  'assets/imagens/cidades/cidadegrande.jpg',
+var drawerItems = [
+  DrawerItem(
+      title: 'Caracterista',
+      description: Strings.perucarac,
+      image: 'assets/imagens/cidades/cidadegrande.jpg'),
+  DrawerItem(
+      title: 'Iquitos',
+      description: Strings.peruiquitos,
+      image: 'assets/imagens/cidades/cidadegrande.jpg'),
+  DrawerItem(
+      title: 'Cajamarca',
+      description: Strings.perucajamarca,
+      image: 'assets/imagens/cidades/vilarejo.jpg'),
+  DrawerItem(
+      title: 'Cusco',
+      description: Strings.perucusco,
+      image: 'assets/imagens/cidades/cidadegrande.jpg'),
+  DrawerItem(
+      title: 'Lima',
+      description: Strings.perulima,
+      image: 'assets/imagens/cidades/cidadegrande.jpg')
 ];
 
 class _DrawerPeruState extends State<DrawerPeru> {
@@ -62,61 +64,79 @@ class _DrawerPeruState extends State<DrawerPeru> {
                 colors: <Color>[Colors.black12, Colors.blueGrey]),
           ),
         ),
-        ListView.builder(
-            shrinkWrap: true,
-            itemCount: imglist.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  showDialogFunc(context, imglist[index], titleList[index],
-                      descrilist[index]);
-                },
-                child: Card(
-                  shadowColor: Colors.grey,
-                  child: SingleChildScrollView(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        SizedBox(
+        ListView(
+          shrinkWrap: true,
+          children: drawerItems
+              .map(
+                (item) => InkWell(
+                  onTap: () {
+                    showDialogFunc(
+                      context,
+                      item.image,
+                      item.title,
+                      item.description,
+                    );
+                  },
+                  child: Card(
+                    shadowColor: Colors.grey,
+                    child: SingleChildScrollView(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Container(
                             width: 100,
                             height: 100,
-                            child:
-                                Image.asset(imglist[index], fit: BoxFit.cover)),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                titleList[index],
-                                style: const TextStyle(
-                                    color: Colors.black87,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
+                            decoration: BoxDecoration(
+                              //Se quiser que a imagem seja em um círculo perfeito, então comenta essa linha [borderRadius] e descomenta a linha abaixo [shape].
+                              //As duas propriedade não podem ser usadas em conjunto pq o Flutter não permite.
+                              borderRadius: BorderRadius.circular(5),
+
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(item.image),
                               ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              SizedBox(
-                                width: width,
-                                child: const Text(
-                                  '',
-                                  style: TextStyle(
-                                      color: Colors.black87,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  item.title,
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(221, 10, 10, 10),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  width: width,
+
+                                  ///Eu imagino que aqui vc queira usar a descrição. Não alterei pq não sei como quer implementar.
+                                  child: const Text(
+                                    '',
+                                    style: TextStyle(
+                                        color:
+                                            Color.fromARGB(221, 252, 251, 251),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              );
-            })
+              )
+              .toList(),
+        ),
       ]),
     );
   }
