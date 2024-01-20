@@ -20,6 +20,7 @@ var imglist = [
   'assets/imagens/cidades/vilarejo.jpg',
   'assets/imagens/cidades/cidadegrande.jpg',
 ];
+var drawerItems = [];
 
 class _DrawerParaguaiState extends State<DrawerParaguai> {
   @override
