@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/home/pesquisa_page.dart';
-import 'package:novo_projeto/page/home/widget_home/home_body.dart';
-import 'package:novo_projeto/page/home/widget_home/home_drawer.dart';
+import 'package:novo_mundo/page/home/pesquisa_page.dart';
+import 'package:novo_mundo/page/home/widget_home/home_body.dart';
+import 'package:novo_mundo/page/home/widget_home/home_drawer.dart';
 import 'widget_home/home_appBar.dart';
 
 class HomePage extends StatefulWidget {

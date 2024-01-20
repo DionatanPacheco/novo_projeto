@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/home/widget_home/home_modal.dart';
+import 'package:novo_mundo/page/home/widget_home/home_modal.dart';
 
 FloatingActionButton getFAB(BuildContext context, Function fncRefresh) {
   return FloatingActionButton(

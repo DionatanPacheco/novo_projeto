@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/suriname/widget_suriname/body_suriname.dart';
-import 'package:novo_projeto/page/america_do_sul/suriname/widget_suriname/drawe_suriname_pers.dart';
-import 'package:novo_projeto/page/america_do_sul/suriname/widget_suriname/drawer_suriname.dart';
+import 'package:novo_mundo/page/america_do_sul/suriname/widget_suriname/body_suriname.dart';
+import 'package:novo_mundo/page/america_do_sul/suriname/widget_suriname/drawe_suriname_pers.dart';
+import 'package:novo_mundo/page/america_do_sul/suriname/widget_suriname/drawer_suriname.dart';
 
 class HomeSuriname extends StatefulWidget {
   const HomeSuriname({Key? key}) : super(key: key);

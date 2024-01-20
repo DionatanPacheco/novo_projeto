@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/chile/widget_chile/body_chile.dart';
+import 'package:novo_mundo/page/america_do_sul/chile/widget_chile/body_chile.dart';
 
 class HomeChile extends StatefulWidget {
   const HomeChile({Key? key}) : super(key: key);

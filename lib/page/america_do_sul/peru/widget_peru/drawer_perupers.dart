@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/peru/model_peru/model_peru.dart';
-import 'package:novo_projeto/page/home/home_historia_mundo/drawer_item.dart';
+import 'package:novo_mundo/page/america_do_sul/peru/model_peru/model_peru.dart';
+import 'package:novo_mundo/page/home/home_historia_mundo/drawer_item.dart';
 
 class DrawerPeruPers extends StatefulWidget {
   const DrawerPeruPers({Key? key}) : super(key: key);

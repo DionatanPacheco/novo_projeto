@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/uruguai/model_uruguai/model_uruguai.dart';
-import 'package:novo_projeto/page/america_do_sul/uruguai/widget_uruguai/drawer_uruguai.dart';
-import 'package:novo_projeto/page/home/home_historia_mundo/drawer_item.dart';
+import 'package:novo_mundo/page/america_do_sul/uruguai/model_uruguai/model_uruguai.dart';
+import 'package:novo_mundo/page/america_do_sul/uruguai/widget_uruguai/drawer_uruguai.dart';
+import 'package:novo_mundo/page/home/home_historia_mundo/drawer_item.dart';
 
 class DrawerUruguaiPers extends StatefulWidget {
   const DrawerUruguaiPers({Key? key}) : super(key: key);

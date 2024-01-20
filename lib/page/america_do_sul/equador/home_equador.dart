@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/equador/widget_equador/body_equador.dart';
-import 'package:novo_projeto/page/america_do_sul/equador/widget_equador/drawer_equador.dart';
-import 'package:novo_projeto/page/america_do_sul/equador/widget_equador/drawer_equadorpers.dart';
+import 'package:novo_mundo/page/america_do_sul/equador/widget_equador/body_equador.dart';
+import 'package:novo_mundo/page/america_do_sul/equador/widget_equador/drawer_equador.dart';
+import 'package:novo_mundo/page/america_do_sul/equador/widget_equador/drawer_equadorpers.dart';
 
 class HomeEquador extends StatefulWidget {
   const HomeEquador({Key? key}) : super(key: key);

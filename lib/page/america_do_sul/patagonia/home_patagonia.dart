@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/patagonia/widget_patagonia/body_patagonia.dart';
-import 'package:novo_projeto/page/america_do_sul/patagonia/widget_patagonia/drawer_pata_perso.dart';
-import 'package:novo_projeto/page/america_do_sul/patagonia/widget_patagonia/drawer_patagonia.dart';
-//import 'package:novo_projeto/page/america_do_sul/argentina/widget_argentina/drawer_argentina.dart';
+import 'package:novo_mundo/page/america_do_sul/patagonia/widget_patagonia/body_patagonia.dart';
+import 'package:novo_mundo/page/america_do_sul/patagonia/widget_patagonia/drawer_pata_perso.dart';
+import 'package:novo_mundo/page/america_do_sul/patagonia/widget_patagonia/drawer_patagonia.dart';
 
 class HomePatagonia extends StatefulWidget {
   const HomePatagonia({Key? key}) : super(key: key);

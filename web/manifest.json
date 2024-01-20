@@ -1,6 +1,6 @@
 {
-    "name": "novo_projeto",
-    "short_name": "novo_projeto",
+    "name": "novo_mundo",
+    "short_name": "novo_mundo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,8 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/home/home_page.dart';
-import 'package:novo_projeto/page/start_page/start_page.dart';
+import 'package:novo_mundo/page/start_page/start_page.dart';
 
 void main() {
   runApp(const MyApp());

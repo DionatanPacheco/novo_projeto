@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/patagonia/patagonia_model/patagonia_model.dart';
-import 'package:novo_projeto/page/home/home_historia_mundo/drawer_item.dart';
+import 'package:novo_mundo/page/america_do_sul/patagonia/patagonia_model/patagonia_model.dart';
+import 'package:novo_mundo/page/home/home_historia_mundo/drawer_item.dart';
 
 class DrawerPatagonia extends StatefulWidget {
   const DrawerPatagonia({Key? key}) : super(key: key);

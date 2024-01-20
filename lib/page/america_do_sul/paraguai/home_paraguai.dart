@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/paraguai/widiget_paraguai/body_paraguai.dart';
+import 'package:novo_mundo/page/america_do_sul/paraguai/widiget_paraguai/body_paraguai.dart';
 
 class HomeParaguai extends StatefulWidget {
   const HomeParaguai({Key? key}) : super(key: key);

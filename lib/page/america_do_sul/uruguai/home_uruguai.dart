@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/uruguai/widget_uruguai/body_uruguai.dart';
-import 'package:novo_projeto/page/america_do_sul/uruguai/widget_uruguai/drawer_uruguai.dart';
+import 'package:novo_mundo/page/america_do_sul/uruguai/widget_uruguai/body_uruguai.dart';
+import 'package:novo_mundo/page/america_do_sul/uruguai/widget_uruguai/drawer_uruguai.dart';
 
 class HomeUruguai extends StatefulWidget {
   const HomeUruguai({Key? key}) : super(key: key);

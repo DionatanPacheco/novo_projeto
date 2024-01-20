@@ -1,7 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/home/home_historia_mundo/home_hist_arq.dart';
+import 'package:novo_mundo/page/home/home_historia_mundo/home_hist_arq.dart';
 
 import 'drawer_item.dart';
 

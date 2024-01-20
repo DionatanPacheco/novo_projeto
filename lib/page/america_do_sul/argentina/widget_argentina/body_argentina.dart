@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/argentina/widget_argentina/drawer_argetinapers.dart';
+import 'package:novo_mundo/page/america_do_sul/argentina/widget_argentina/drawer_argetinapers.dart';
 
 class BodyArgentina extends StatefulWidget {
   const BodyArgentina({Key? key}) : super(key: key);

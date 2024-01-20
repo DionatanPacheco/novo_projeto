@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/guiana/widget_guiana/drawer_guiana_pers.dart';
+import 'package:novo_mundo/page/america_do_sul/guiana/widget_guiana/drawer_guiana_pers.dart';
 
 class BodyGuiana extends StatefulWidget {
   const BodyGuiana({Key? key}) : super(key: key);

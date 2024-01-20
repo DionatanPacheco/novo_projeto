@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/argentina/widget_argentina/appbar_argentina.dart';
-import 'package:novo_projeto/page/america_do_sul/argentina/widget_argentina/body_argentina.dart';
-import 'package:novo_projeto/page/america_do_sul/argentina/widget_argentina/drawer_argentina.dart';
+import 'package:novo_mundo/page/america_do_sul/argentina/widget_argentina/appbar_argentina.dart';
+import 'package:novo_mundo/page/america_do_sul/argentina/widget_argentina/body_argentina.dart';
+import 'package:novo_mundo/page/america_do_sul/argentina/widget_argentina/drawer_argentina.dart';
 
 class HomeArgentina extends StatefulWidget {
   const HomeArgentina({Key? key}) : super(key: key);

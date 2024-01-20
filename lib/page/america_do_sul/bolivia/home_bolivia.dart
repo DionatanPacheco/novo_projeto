@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/bolivia/widget_bolivia/body_bolivia.dart';
-import 'package:novo_projeto/page/america_do_sul/bolivia/widget_bolivia/drawer_bolivia.dart';
+import 'package:novo_mundo/page/america_do_sul/bolivia/widget_bolivia/body_bolivia.dart';
+import 'package:novo_mundo/page/america_do_sul/bolivia/widget_bolivia/drawer_bolivia.dart';
 
 class HomeBolivia extends StatefulWidget {
   const HomeBolivia({Key? key}) : super(key: key);

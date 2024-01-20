@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/page/america_do_sul/equador/model_equador/model_equador.dart';
+import 'package:novo_mundo/page/america_do_sul/equador/model_equador/model_equador.dart';
 
 class DrawerEquardor extends StatefulWidget {
   const DrawerEquardor({Key? key}) : super(key: key);

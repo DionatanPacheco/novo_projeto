@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // ignore: unnecessary_import
 import 'package:flutter/widgets.dart';
 
-import 'package:novo_projeto/page/start_page/widget_start/start_body.dart';
+import 'package:novo_mundo/page/start_page/widget_start/start_body.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({Key? key}) : super(key: key);
